@@ -7,7 +7,7 @@ IS			(u|U|l|L)*
 
 %{
 #include <stdio.h>
-#include "symbols.h"
+#include "c.tab.h"
 
 void count();
 %}
@@ -93,6 +93,25 @@ L?\"(\\.|[^\\"])*\"	{ count(); return(STRING_LITERAL); }
 "!="			{ count(); return(NE_OP); }
 "?"			{ count(); return(COND_OP); }
 ";"			{ count(); return(END_OF_INSTRUCTION); }
+"++"			{ count(); return(INC_OP); }
+"--"			{ count(); return(DEC_OP); }
+"->"			{ count(); return(PTR_OP); }
+"("			{ count(); return(LEFT_PARANTHESES); }
+")"			{ count(); return(RIGHT_PARANTHESES); }
+("["|"<:")		{ count(); return(LEFT_BRACKETS); }
+("]"|":>")		{ count(); return(RIGHT_BRACKETS); }
+("{"|"<%")		{ count(); return(LEFT_BRACES); }
+("}"|"%>")		{ count(); return(RIGHT_BRACES); }
+"."			{ count(); return(POINT); }
+","			{ count(); return(COMMA); }
+"~"			{ count(); return(NOT); }
+"!"			{ count(); return(NEGATE); }
+">>"			{ count(); return(RIGHT_OP); }
+"<<"			{ count(); return(LEFT_OP); }
+":"			{ count(); return(COLON); }
+"..."			{ count(); return(ELLIPSIS); }
+">>="			{ count(); return(RIGHT_ASSIGN); }
+"<<="			{ count(); return(LEFT_ASSIGN); }
 
 [ \t\v\n\f]		{ count(); }
 

@@ -5,3 +5,5 @@ double
 return 
 restrict
 register
+<<=
+>>=

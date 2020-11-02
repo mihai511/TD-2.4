@@ -71,7 +71,27 @@ const char* lexUnits[] = {
 						"NE_OP",
 						"COND_OP",
 						"END_OF_INSTRUCTION",
-						"IDENTIFIER" };
+						"IDENTIFIER",
+						"INC_OP",
+						"DEC_OP",
+						"PTR_OP",
+						"NOT",
+						"NEGATE",
+						"LEFT_OP",
+						"RIGHT_OP",
+						"COLON",
+						"LEFT_PARANTHESES",
+						"RIGHT_PARANTHESES",
+						"LEFT_BRACES",
+						"RIGHT_BRACES",
+						"LEFT_BRACKETS",
+						"RIGHT_BRACKETS",
+						"POINT",
+						"COMMA",
+						"ELLIPSIS",
+						"RIGHT_ASSIGN",
+						"LEFT_ASSIGN",
+						"TYPE_NAME"};
 
 int main()
 {
@@ -82,7 +102,7 @@ int main()
 	{
 		while ((tokenValue = yylex()) != END)
 		{
-			printf(" -> TOKEN ID: %d; TOKEN VALUE %s", tokenValue, lexUnits[tokenValue]);
+			printf(" -> TOKEN ID: %d; TOKEN VALUE: %s", tokenValue, lexUnits[tokenValue]);
 		}
 	}
 	else
