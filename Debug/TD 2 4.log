@@ -1,8 +1,11 @@
-﻿  TD 2 4.c
+﻿  c.tab.c
   lex.yy.c
 c.lex(16,10): warning C4013: 'comment' undefined; assuming extern returning int
 c.lex(56,29): warning C4013: 'check_type' undefined; assuming extern returning int
-lex.yy.c(1976,46): warning C4013: 'isatty' undefined; assuming extern returning int
+lex.yy.c(2075,46): warning C4013: 'isatty' undefined; assuming extern returning int
+  TD 2 4.c
+C:\Users\Mihai\source\repos\TD 2 4\TD 2 4.c(104,23): warning C4013: 'yyparse' undefined; assuming extern returning int
   Generating Code...
 C:\Users\Mihai\source\repos\TD 2 4\c.lex(142): warning C4716: 'comment': must return a value
+C:\Users\Mihai\source\repos\TD 2 4\c.y(513): warning C4716: 'yyerror': must return a value
   TD 2 4.vcxproj -> C:\Users\Mihai\source\repos\TD 2 4\Debug\TD 2 4.exe

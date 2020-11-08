@@ -3,6 +3,7 @@
 #include <errno.h>
 extern FILE* yyin;
 extern int yylex(void);
+extern int yydebug;
 const char* lexUnits[] = {
 						"END",
 						"AUTO",
@@ -95,15 +96,28 @@ const char* lexUnits[] = {
 
 int main()
 {
-	int tokenValue = 0;
+	yydebug = 1;
 	yyin = fopen("input.csrc", "rt");
 
 	if (yyin != NULL)
 	{
-		while ((tokenValue = yylex()) != END)
+		int result = yyparse();
+		switch (result)
 		{
-			printf(" -> TOKEN ID: %d; TOKEN VALUE: %s", tokenValue, lexUnits[tokenValue]);
+		case 0:
+			printf("Parse successful.\n");
+			break;
+		case 1:
+			printf("Invalid input encountered.\n");
+			break;
+		case 2:
+			printf("Out of memory.\n");
+			break;
+		default:
+			break;
 		}
+
+		fclose(yyin);
 	}
 	else
 	{

@@ -1,3 +1,10 @@
+%{
+#include <stdio.h>
+
+int yyerror(char *s);
+extern int yylex(void);
+%}
+
 %token END
 %token AUTO
 %token BREAK
@@ -492,6 +499,7 @@ function_definition
 	;
 
 %%
+
 #include <stdio.h>
 
 extern char yytext[];
